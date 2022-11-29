@@ -1,0 +1,9 @@
+.search-style {
+  width: 100%;
+  margin: 10px 0;
+  height: 25px;
+  padding: 0 10px;
+  outline: none;
+  letter-spacing: 1.5px;
+  font-size: 17px;
+}
