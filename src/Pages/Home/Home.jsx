@@ -9,15 +9,22 @@ import { fetchData } from "../../Utils/Api/api";
 import "./Home.css";
 const Home = () => {
   const [type, setType] = useState("Tv Shows");
-  const { isLoading, data, refetch } = useQuery("movies", fetchData(type));
+  const [query, setQuery] = useState("");
+  const { isLoading, data, refetch } = useQuery(
+    "movies",
+    fetchData(type, query)
+  );
 
   useEffect(() => {
     refetch();
-  }, [type]);
-  const handleSearch = (e) => {};
+  }, [type, query]);
+  const handleSearch = (e) => {
+    setQuery(e.target.value);
+  };
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
+  console.log(query);
 
   return (
     <div className="home-style">
