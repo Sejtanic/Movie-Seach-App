@@ -1,0 +1,17 @@
+.card-style {
+  /* background-color: darkslategray; */
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid darkgrey;
+}
+.card-style img {
+  border-radius: 5px;
+  width: 100%;
+  height: width;
+}
+.card-style h3 {
+  margin: 15px 0;
+  letter-spacing: 1.5px;
+  font-weight: normal;
+}
