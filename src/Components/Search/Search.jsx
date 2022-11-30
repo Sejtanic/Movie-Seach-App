@@ -1,11 +1,10 @@
-import React from "react";
-import { useSite } from "../../State/siteContext";
+// import React from "react";
 import "./Search.css";
 const Search = ({ onChange, placeholder, value }) => {
-  const { query } = useSite();
+  console.log(value);
   return (
     <input
-      value={query}
+      defaultValue={value}
       type="text"
       className="search-style"
       onChange={onChange}
@@ -13,4 +12,4 @@ const Search = ({ onChange, placeholder, value }) => {
     />
   );
 };
-export default React.memo(Search);
+export default Search;
