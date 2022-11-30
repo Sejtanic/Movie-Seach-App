@@ -19,26 +19,23 @@ const Movie = () => {
     fetchMovieTrailer(type, id)
   );
   let key = dataTrailer?.results[0]?.key;
+  const title = type === "Movies" ? data?.title : data?.name;
+
   return (
     <div className="movie-style">
       {isLoading ? (
         <Loading />
       ) : (
         <div className="movie-container-style">
-          <Link to={"/"} className="navigate">
+          <Link to={"/"} title={"Back"} className="navigate">
             {"<"}
           </Link>
           <div className="title-rating-style">
-            <p>{type === "Movies" ? data?.title : data?.name}</p>
+            <p>{title}</p>
             <Rating rating={data.vote_average} />
           </div>
           {key && <Video videoKey={key} />}
-          {!key && (
-            <Poster
-              path={data?.poster_path}
-              alt={type === "Movies" ? data?.title : data?.name}
-            />
-          )}
+          {!key && <Poster path={data?.poster_path} alt={title} />}
           <Overview overview={data?.overview} />
         </div>
       )}

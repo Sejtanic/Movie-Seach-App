@@ -16,8 +16,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 20px;
-  font-weight: light;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Amatic SC", cursive;
 }
 .movie-container-style img {
   height: 60vh;
@@ -26,7 +27,7 @@
 .navigate {
   display: block;
   width: fit-content;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   font-size: 60px;
 }
 .navigate:hover {

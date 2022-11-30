@@ -31,11 +31,20 @@ const Home = () => {
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
+  console.log(data?.results);
   return (
     <div className="home-style">
       <Toggle>
-        <Button label="Movies" onClick={handleCategory} />
-        <Button label="Tv Shows" onClick={handleCategory} />
+        <Button
+          label="Movies"
+          onClick={handleCategory}
+          disabled={"Movies" === type}
+        />
+        <Button
+          label="Tv Shows"
+          onClick={handleCategory}
+          disabled={"Tv Shows" === type}
+        />
       </Toggle>
       <Search placeholder="search" onChange={debounceOnChange} value={query} />
       {isLoading ? (
@@ -49,6 +58,7 @@ const Home = () => {
               title={movie.title}
               name={movie.name}
               poster_path={movie.poster_path}
+              backdrop_path={movie.backdrop_path}
               key={movie.id}
             />
           ))}
