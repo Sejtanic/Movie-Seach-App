@@ -44,6 +44,7 @@ const Home = () => {
         <Container>
           {data?.results?.map((movie) => (
             <Card
+              id={movie.id}
               title={movie.title}
               name={movie.name}
               poster_path={movie.poster_path}

@@ -1,8 +1,9 @@
+const baseURL = import.meta.env.VITE_APP_BASE_URL;
+const apiKey = import.meta.env.VITE_APP_API_KEY;
+
 const fetchHandler = (type, page = 1, query) => {
   return fetch(
-    `${import.meta.env.VITE_APP_BASE_URL}${type}${
-      import.meta.env.VITE_APP_API_KEY
-    }&language=en-US&page=${page}${query}`
+    `${baseURL}${type}${apiKey}&language=en-US&page=${page}${query}`
   ).then((response) => response.json());
 };
 
@@ -26,4 +27,9 @@ export const fetchData = (type, query) => {
     return () => fetchHandler("movie/top_rated?", 1);
   if (type === "Tv Shows" && !query)
     return () => fetchHandler("tv/top_rated?", 1);
+};
+
+export const fetchMovie = (type, id) => {
+  return () =>
+    fetch(`${baseURL}tv/${id}?${apiKey}`).then((response) => response.json());
 };
