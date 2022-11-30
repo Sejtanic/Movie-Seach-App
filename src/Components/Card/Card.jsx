@@ -21,7 +21,7 @@ const Card = ({ title, poster_path, name, id, rating, backdrop_path }) => {
         className="card-style"
         style={{ borderTop: `1px solid ${ratingColorReturn(rating)}` }}
       >
-        <Poster path={image} alt={title} />
+        <Poster path={image} alt={title || name} />
         <h3>{title}</h3>
         <h3>{name}</h3>
       </div>
