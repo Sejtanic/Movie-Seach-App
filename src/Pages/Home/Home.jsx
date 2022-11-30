@@ -8,6 +8,8 @@ import Toggle from "../../Components/Toggle/Toggle";
 import debounce from "lodash.debounce";
 import { fetchData } from "../../Utils/Api/api";
 import "./Home.css";
+import Loading from "../../Components/Loading/Loading";
+
 const Home = () => {
   const [type, setType] = useState("Tv Shows");
   const [query, setQuery] = useState("");
@@ -29,7 +31,6 @@ const Home = () => {
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
-
   return (
     <div className="home-style">
       <Toggle>
@@ -37,16 +38,20 @@ const Home = () => {
         <Button label="Tv Shows" onClick={handleCategory} />
       </Toggle>
       <Search placeholder="search" onChange={debounceOnChange} />
-      <Container>
-        {data?.results?.map((movie) => (
-          <Card
-            title={movie.title}
-            name={movie.name}
-            poster_path={movie.poster_path}
-            key={movie.id}
-          />
-        ))}
-      </Container>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <Container>
+          {data?.results?.map((movie) => (
+            <Card
+              title={movie.title}
+              name={movie.name}
+              poster_path={movie.poster_path}
+              key={movie.id}
+            />
+          ))}
+        </Container>
+      )}
     </div>
   );
 };
