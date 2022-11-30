@@ -5,6 +5,7 @@ import Card from "../../Components/Card/Card";
 import Container from "../../Components/Container/Container";
 import Search from "../../Components/Search/Search";
 import Toggle from "../../Components/Toggle/Toggle";
+import debounce from "lodash.debounce";
 import { fetchData } from "../../Utils/Api/api";
 import "./Home.css";
 const Home = () => {
@@ -18,13 +19,16 @@ const Home = () => {
   useEffect(() => {
     refetch();
   }, [type, query]);
+
   const handleSearch = (e) => {
+    if (e.target.value.length < 3) return setQuery("");
     setQuery(e.target.value);
   };
+  const debounceOnChange = debounce(handleSearch, 1000);
+
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
-  console.log(query);
 
   return (
     <div className="home-style">
@@ -32,7 +36,7 @@ const Home = () => {
         <Button label="Movies" onClick={handleCategory} />
         <Button label="Tv Shows" onClick={handleCategory} />
       </Toggle>
-      <Search placeholder="search" onChange={handleSearch} />
+      <Search placeholder="search" onChange={debounceOnChange} />
       <Container>
         {data?.results?.map((movie) => (
           <Card
