@@ -13,12 +13,11 @@ const Movie = () => {
   let { id } = useParams();
   const { type } = useSite();
   const { isLoading, data } = useQuery("movie", fetchMovie(type, id));
-  const { isLoading: isLoadingTrailer, data: dataTrailer } = useQuery(
+  const { data: dataTrailer } = useQuery(
     "movietrailer",
     fetchMovieTrailer(type, id)
   );
   let key = dataTrailer?.results[0]?.key;
-  console.log(data);
   return (
     <div className="movie-style">
       {isLoading ? (
@@ -33,7 +32,12 @@ const Movie = () => {
             <Rating rating={data.vote_average} />
           </div>
           {key && <Video videoKey={key} />}
-          {!key && <Poster path={data?.poster_path} />}
+          {!key && (
+            <Poster
+              path={data?.poster_path}
+              alt={type === "Movies" ? data?.title : data?.name}
+            />
+          )}
           <p className="overview">{data?.overview}</p>
         </div>
       )}

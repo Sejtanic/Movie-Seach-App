@@ -31,6 +31,7 @@ const Home = () => {
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
+  console.log(data?.results);
   return (
     <div className="home-style">
       <Toggle>
@@ -44,6 +45,7 @@ const Home = () => {
         <Container>
           {data?.results?.map((movie) => (
             <Card
+              rating={movie.vote_average}
               id={movie.id}
               title={movie.title}
               name={movie.name}
