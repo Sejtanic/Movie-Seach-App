@@ -9,10 +9,10 @@ import debounce from "lodash.debounce";
 import { fetchData } from "../../Utils/Api/api";
 import "./Home.css";
 import Loading from "../../Components/Loading/Loading";
+import { useSite } from "../../State/siteContext";
 
 const Home = () => {
-  const [type, setType] = useState("Tv Shows");
-  const [query, setQuery] = useState("");
+  const { type, setType, query, setQuery } = useSite();
   const { isLoading, data, refetch } = useQuery(
     "movies",
     fetchData(type, query)
@@ -37,7 +37,7 @@ const Home = () => {
         <Button label="Movies" onClick={handleCategory} />
         <Button label="Tv Shows" onClick={handleCategory} />
       </Toggle>
-      <Search placeholder="search" onChange={debounceOnChange} />
+      <Search placeholder="search" onChange={debounceOnChange} value={query} />
       {isLoading ? (
         <Loading />
       ) : (

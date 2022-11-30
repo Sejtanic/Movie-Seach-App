@@ -10,13 +10,9 @@ const fetchHandler = (type, page = 1, query) => {
 const queryHandler = (query) => {
   return `&query=${query.split(" ").join("+")}`;
 };
+
 export const fetchData = (type, query) => {
   if (query)
-    // return () =>
-    //   fetch(
-    //     `https://api.themoviedb.org/3/search/movie?api_key=3cf570ef9cdb104736c91347aaf5e8d2&language=en-US&page=2&include_adult=false&query=${query}`
-    //   ).then((response) => response.json());
-
     return () =>
       fetchHandler(
         type === "Movies" ? "search/movie?" : "search/tv?",
@@ -31,12 +27,16 @@ export const fetchData = (type, query) => {
 
 export const fetchMovie = (type, id) => {
   return () =>
-    fetch(`${baseURL}tv/${id}?${apiKey}`).then((response) => response.json());
+    fetch(
+      `${baseURL}${type === "Movies" ? "movie" : "tv"}/${id}?${apiKey}`
+    ).then((response) => response.json());
 };
 
 export const fetchMovieTrailer = (type, id) => {
   return () =>
     fetch(
-      ` https://api.themoviedb.org/3/movie/${id}/videos?api_key=3cf570ef9cdb104736c91347aaf5e8d2&language=en-US`
+      ` ${baseURL}${
+        type === "Movies" ? "movie" : "tv"
+      }/${id}/videos?${apiKey}&language=en-US`
     ).then((response) => response.json());
 };

@@ -1,14 +1,18 @@
 import React, { useContext, useState } from "react";
 
 const SiteContext = React.createContext();
-export const useSiteData = () => {
+export const useSite = () => {
   return useContext(SiteContext);
 };
 
 export const SiteProvider = ({ children }) => {
-  const haris = "haris";
+  const [type, setType] = useState("Tv Shows");
+  const [query, setQuery] = useState("");
   const value = {
-    haris,
+    type,
+    query,
+    setQuery,
+    setType,
   };
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
 };

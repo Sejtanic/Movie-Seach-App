@@ -3,7 +3,7 @@
   width: 100%;
 }
 .movie-container-style {
-  width: 80%;
+  width: 60%;
   height: 100%;
   margin: auto;
   padding: 20px;
@@ -12,9 +12,20 @@
   gap: 20px;
   letter-spacing: 1.5px;
 }
+.title-rating-style {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: light;
+}
 .movie-container-style img {
   height: 60vh;
   object-fit: contain;
+}
+.overview {
+  font-size: 14px;
+  text-align: center;
 }
 .navigate {
   display: block;
