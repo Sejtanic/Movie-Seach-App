@@ -2,3 +2,9 @@
   width: 80%;
   margin: 30px auto;
 }
+@media (max-width: 500px) {
+  .home-style {
+    width: 100%;
+    margin: 30px 10px;
+  }
+}

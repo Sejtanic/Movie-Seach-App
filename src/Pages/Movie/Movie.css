@@ -23,10 +23,6 @@
   height: 60vh;
   object-fit: contain;
 }
-.overview {
-  font-size: 14px;
-  text-align: center;
-}
 .navigate {
   display: block;
   width: fit-content;
@@ -45,5 +41,13 @@
   }
   30% {
     scale: 1;
+  }
+}
+@media (max-width: 500px) {
+  .movie-container-style {
+    width: 100%;
+  }
+  .navigate {
+    font-size: 20px;
   }
 }

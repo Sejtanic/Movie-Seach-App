@@ -8,6 +8,7 @@ import Video from "../../Components/Video/Video";
 import { useSite } from "../../State/siteContext";
 import Poster from "../../Components/Poster/Poster";
 import Rating from "../../Components/Rating/Rating";
+import Overview from "../../Components/Overview/Overview";
 
 const Movie = () => {
   let { id } = useParams();
@@ -38,7 +39,7 @@ const Movie = () => {
               alt={type === "Movies" ? data?.title : data?.name}
             />
           )}
-          <p className="overview">{data?.overview}</p>
+          <Overview overview={data?.overview} />
         </div>
       )}
     </div>

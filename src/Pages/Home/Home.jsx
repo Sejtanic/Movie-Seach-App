@@ -31,7 +31,6 @@ const Home = () => {
   const handleCategory = (e) => {
     setType(e.target.innerHTML);
   };
-  console.log(data?.results);
   return (
     <div className="home-style">
       <Toggle>
