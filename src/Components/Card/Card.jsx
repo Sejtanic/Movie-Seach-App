@@ -1,7 +1,7 @@
 import { useObserver } from "../../Hooks/observerHook";
 import "./Card.css";
 const Card = ({ title, poster_path, name }) => {
-  useObserver(".card-style", false, "pop-up", 1);
+  useObserver(".card-style", true, "pop-up", 1);
   return (
     <div className="card-style">
       <img
