@@ -10,10 +10,12 @@ Step 4: Run application with command :  npm start
 
 Application is created by Vite 
 
-Tech stack used:SOLID principles ,HTML ,CSS ,JavaScript, ReactJs ,React Context API as global state, React Query as State , React Router,React Hooks ,customHooks,All Components are reusable, Majority of components are Pure,
+Tech stack used:SOLID principles,Vercel ,HTML ,CSS ,JavaScript, ReactJs ,React Context API as global state, React Query as State , React Router,React Hooks ,customHooks,All Components are reusable, Majority of components are Pure,
 TMDB as API, Lodash for debounce, Dotenv for sensitive data (i know that  .env shoud not be commited on GitHub i commited it for sake of proving that i implemented it).
 
 TMDB returns 20 results each call i left it that way for becouse of better looking UI but to prove i know how to make it 10 in Home.jsx line 54 change data?.results?.map() change to data?.results?.slice(0,9).map()
+
+Visit Live Website at : https://rubicon-indol.vercel.app/ 
 
 Implemented 
 
