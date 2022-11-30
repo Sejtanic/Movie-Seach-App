@@ -33,3 +33,10 @@ export const fetchMovie = (type, id) => {
   return () =>
     fetch(`${baseURL}tv/${id}?${apiKey}`).then((response) => response.json());
 };
+
+export const fetchMovieTrailer = (type, id) => {
+  return () =>
+    fetch(
+      ` https://api.themoviedb.org/3/movie/${id}/videos?api_key=3cf570ef9cdb104736c91347aaf5e8d2&language=en-US`
+    ).then((response) => response.json());
+};
