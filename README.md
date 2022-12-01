@@ -19,6 +19,8 @@ Visit Live Website at : https://rubicon-indol.vercel.app/
 
 Implemented 
 
+Mobile responsive
+
 Reactive search bar 
 
 Only after 3 or more keys search is activated 
