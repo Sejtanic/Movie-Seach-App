@@ -7,36 +7,37 @@ const fetchHandler = (type, page = 1, query) => {
   ).then((response) => response.json());
 };
 
+//
 const queryHandler = (query) => {
   return `&query=${query.split(" ").join("+")}`;
+};
+
+const typeHandler = (type, movie = "movie", tv = "tv") => {
+  return type === "Movies" ? movie : tv;
 };
 
 export const fetchData = (type, query) => {
   if (query)
     return () =>
       fetchHandler(
-        type === "Movies" ? "search/movie?" : "search/tv?",
-        2,
+        typeHandler(type, "search/movie?", "search/tv?"),
+        1,
         queryHandler(query)
       );
-  if (type === "Movies" && !query)
-    return () => fetchHandler("movie/top_rated?", 1);
-  if (type === "Tv Shows" && !query)
-    return () => fetchHandler("tv/top_rated?", 1);
+  return () =>
+    fetchHandler(typeHandler(type, "movie/top_rated?", "tv/top_rated?"));
 };
 
 export const fetchMovie = (type, id) => {
   return () =>
-    fetch(
-      `${baseURL}${type === "Movies" ? "movie" : "tv"}/${id}?${apiKey}`
-    ).then((response) => response.json());
+    fetch(`${baseURL}${typeHandler(type)}/${id}?${apiKey}`).then((response) =>
+      response.json()
+    );
 };
 
 export const fetchMovieTrailer = (type, id) => {
   return () =>
     fetch(
-      ` ${baseURL}${
-        type === "Movies" ? "movie" : "tv"
-      }/${id}/videos?${apiKey}&language=en-US`
+      ` ${baseURL}${typeHandler(type)}/${id}/videos?${apiKey}&language=en-US`
     ).then((response) => response.json());
 };

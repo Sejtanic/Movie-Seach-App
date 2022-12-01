@@ -3,7 +3,7 @@ import "./Theme.css";
 const Theme = () => {
   const { theme, setTheme } = useSite();
   const body = document.querySelector("body");
-  body.style.backgroundColor = theme ? "black" : "white";
+  body.style.backgroundColor = theme ? "black" : "#F6F6F6";
   body.style.color = theme ? "white" : "black";
 
   const themeHandler = () => {
