@@ -1,4 +1,4 @@
-import { ratingColorReturn } from "../../Utils/hellperFunctions";
+import { ratingColorReturn } from "../../Utils/Functions/hellperFunctions";
 import "./Rating.css";
 const Rating = ({ rating }) => {
   return (

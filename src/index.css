@@ -10,4 +10,5 @@ body {
   background-color: rgba(0, 0, 0, 0.951);
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: all 0.5s ease-in;
 }

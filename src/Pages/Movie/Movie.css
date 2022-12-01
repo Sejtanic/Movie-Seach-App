@@ -1,6 +1,9 @@
 .movie-style {
   min-height: 100vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .movie-container-style {
   width: 60%;
@@ -27,7 +30,7 @@
 .navigate {
   display: block;
   width: fit-content;
-  /* padding: 5px 10px; */
+  color: rgb(58, 55, 55);
   font-size: 60px;
 }
 .navigate:hover {

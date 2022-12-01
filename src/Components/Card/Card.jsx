@@ -2,7 +2,7 @@ import { useObserver } from "../../Hooks/observerHook";
 import { Link } from "react-router-dom";
 import "./Card.css";
 import Poster from "../Poster/Poster";
-import { ratingColorReturn } from "../../Utils/hellperFunctions";
+import { ratingColorReturn } from "../../Utils/Functions/hellperFunctions";
 import { useState } from "react";
 const Card = ({ title, poster_path, name, id, rating, backdrop_path }) => {
   useObserver(".card-style", true, "pop-up", 0.8);
@@ -19,7 +19,7 @@ const Card = ({ title, poster_path, name, id, rating, backdrop_path }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         className="card-style"
-        style={{ borderTop: `1px solid ${ratingColorReturn(rating)}` }}
+        style={{ borderTop: `2px solid ${ratingColorReturn(rating)}` }}
       >
         <Poster path={image} alt={title || name} />
         <h3>{title}</h3>

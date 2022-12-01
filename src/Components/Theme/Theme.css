@@ -1,0 +1,8 @@
+.theme-style {
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+.Light-on {
+  color: yellow;
+  text-shadow: 0 0 10px rgb(174, 238, 47);
+}

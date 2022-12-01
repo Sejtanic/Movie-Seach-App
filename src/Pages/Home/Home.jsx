@@ -10,6 +10,8 @@ import { fetchData } from "../../Utils/Api/api";
 import "./Home.css";
 import Loading from "../../Components/Loading/Loading";
 import { useSite } from "../../State/siteContext";
+import ScrollTop from "../../Components/ScrollTop/ScrollTop";
+import Theme from "../../Components/Theme/Theme";
 
 const Home = () => {
   const { type, setType, query, setQuery } = useSite();
@@ -45,24 +47,28 @@ const Home = () => {
           onClick={handleCategory}
           disabled={"Tv Shows" === type}
         />
+        <Theme />
       </Toggle>
       <Search placeholder="search" onChange={debounceOnChange} value={query} />
       {isLoading ? (
         <Loading />
       ) : (
-        <Container>
-          {data?.results?.map((movie) => (
-            <Card
-              rating={movie.vote_average}
-              id={movie.id}
-              title={movie.title}
-              name={movie.name}
-              poster_path={movie.poster_path}
-              backdrop_path={movie.backdrop_path}
-              key={movie.id}
-            />
-          ))}
-        </Container>
+        <>
+          <Container>
+            {data?.results?.map((movie) => (
+              <Card
+                rating={movie.vote_average}
+                id={movie.id}
+                title={movie.title}
+                name={movie.name}
+                poster_path={movie.poster_path}
+                backdrop_path={movie.backdrop_path}
+                key={movie.id}
+              />
+            ))}
+          </Container>
+          <ScrollTop />
+        </>
       )}
     </div>
   );

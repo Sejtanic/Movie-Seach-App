@@ -1,0 +1,37 @@
+.scroll-top button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+}
+.scroll-top img {
+  height: 100%;
+  width: 100%;
+}
+.scroll-top button:hover,
+.scroll-top button:focus {
+  outline: none;
+  cursor: pointer;
+  animation: pop 1s forwards;
+}
+@keyframes pop {
+  0% {
+    scale: 1.2;
+  }
+  10% {
+    scale: 0.7;
+  }
+  20% {
+    scale: 1.1;
+  }
+  100% {
+    color: black;
+    scale: 1;
+  }
+}
