@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import Button from "../../Components/Button/Button";
 import Card from "../../Components/Card/Card";
@@ -49,7 +49,11 @@ const Home = () => {
         />
         <Theme />
       </Toggle>
-      <Search placeholder="search" onChange={debounceOnChange} value={query} />
+      <Search
+        placeholder={`Search ${type}`}
+        onChange={debounceOnChange}
+        value={query}
+      />
       {isLoading ? (
         <Loading />
       ) : (

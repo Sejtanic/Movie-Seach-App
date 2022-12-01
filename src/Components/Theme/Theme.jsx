@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSite } from "../../State/siteContext";
 import "./Theme.css";
 const Theme = () => {

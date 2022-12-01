@@ -1,13 +1,9 @@
 .container-style {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 15px;
   margin-top: 20px;
 }
-/* .container-style p {
-  width: 100%;
-  background-color: red;
-} */
 @media (max-width: 500px) {
   .container-style {
     grid-template-columns: 1fr 1fr;
