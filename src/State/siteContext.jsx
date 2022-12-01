@@ -7,12 +7,16 @@ export const useSite = () => {
 
 export const SiteProvider = ({ children }) => {
   const [type, setType] = useState("Tv Shows");
+  const [theme, setTheme] = useState(true);
+
   const [query, setQuery] = useState("");
   const value = {
+    theme,
     type,
     query,
     setQuery,
     setType,
+    setTheme,
   };
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
 };
