@@ -2,7 +2,7 @@ How to run code
 
 Step 1 : Clone this repository on your device 
 
-Step 2: Navigate to cloned folder and open terminal at top level 
+Step 2: Navigate to cloned folder and open terminal at top level in cloned folder
 
 Step 3: Run command :  npm install    
 
