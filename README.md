@@ -13,7 +13,7 @@ Application is created by Vite
 Tech stack used:SOLID principles,Vercel ,HTML ,CSS ,JavaScript, ReactJs ,React Context API as global state, React Query as State , React Router,React Hooks ,customHooks,All Components are reusable, Majority of components are Pure,
 TMDB as API, Lodash for debounce, Dotenv for sensitive data (i know that  .env shoud not be commited on GitHub i commited it for sake of proving that i implemented it).
 
-TMDB returns 20 results from each api call and that is fixed i left it that way for becouse of better looking UI but to prove i know how to make it 10 in Home.jsx line 54 change data?.results?.map(...)  TO data?.results?.slice(0,9).map(...)
+TMDB returns 20 results from each api call and that is fixed i left it that way for becouse of better looking UI but to prove i know how to make it 10 in Home.jsx line 62 change data?.results?.map(...)  TO data?.results?.slice(0,10).map(...)
 
 Visit Live Website at : https://rubicon-indol.vercel.app/ 
 
