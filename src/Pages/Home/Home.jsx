@@ -1,39 +1,38 @@
-import { useEffect } from "react";
-import { useQuery } from "react-query";
-import Button from "../../Components/Button/Button";
-import Card from "../../Components/Card/Card";
-import Container from "../../Components/Container/Container";
-import Search from "../../Components/Search/Search";
-import Toggle from "../../Components/Toggle/Toggle";
-import debounce from "lodash.debounce";
-import { fetchData } from "../../Utils/Api/api";
-import "./Home.css";
-import Loading from "../../Components/Loading/Loading";
-import { useSite } from "../../State/siteContext";
-import ScrollTop from "../../Components/ScrollTop/ScrollTop";
-import Theme from "../../Components/Theme/Theme";
+import { useEffect } from "react"
+import { useQuery } from "react-query"
+import Button from "../../Components/Button/Button"
+import Card from "../../Components/Card/Card"
+import Container from "../../Components/Container/Container"
+import Search from "../../Components/Search/Search"
+import Toggle from "../../Components/Toggle/Toggle"
+import debounce from "lodash.debounce"
+import { fetchData } from "../../Utils/Api/api"
+import "./Home.css"
+import Loading from "../../Components/Loading/Loading"
+import { useSite } from "../../State/siteContext"
+import ScrollTop from "../../Components/ScrollTop/ScrollTop"
+import Theme from "../../Components/Theme/Theme"
 
 const Home = () => {
-  const { type, setType, query, setQuery } = useSite();
+  const { type, setType, query, setQuery } = useSite()
   const { isLoading, data, refetch } = useQuery(
     "movies",
     fetchData(type, query)
-  );
+  )
 
   useEffect(() => {
-    refetch();
-  }, [type, query]);
+    refetch()
+  }, [type, query])
 
   const handleSearch = (e) => {
-    if (e.target.value.length < 3) return setQuery("");
-    setQuery(e.target.value);
-  };
-  const debounceOnChange = debounce(handleSearch, 1000);
+    if (e.target.value.length < 3) return setQuery("")
+    setQuery(e.target.value)
+  }
+  const debounceOnChange = debounce(handleSearch, 1000)
 
   const handleCategory = (e) => {
-    setType(e.target.innerHTML);
-  };
-  console.log(data?.results);
+    setType(e.target.innerHTML)
+  }
   return (
     <div className="home-style">
       <Toggle>
@@ -75,6 +74,6 @@ const Home = () => {
         </>
       )}
     </div>
-  );
-};
-export default Home;
+  )
+}
+export default Home

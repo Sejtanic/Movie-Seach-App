@@ -1,15 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from "react"
 
-const SiteContext = React.createContext();
+const SiteContext = React.createContext()
 export const useSite = () => {
-  return useContext(SiteContext);
-};
+  return useContext(SiteContext)
+}
 
 export const SiteProvider = ({ children }) => {
-  const [type, setType] = useState("Tv Shows");
-  const [theme, setTheme] = useState(true);
-
-  const [query, setQuery] = useState("");
+  const [type, setType] = useState("Tv Shows")
+  const [theme, setTheme] = useState(true)
+  const [query, setQuery] = useState("")
   const value = {
     theme,
     type,
@@ -17,6 +16,6 @@ export const SiteProvider = ({ children }) => {
     setQuery,
     setType,
     setTheme,
-  };
-  return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;
-};
+  }
+  return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>
+}
